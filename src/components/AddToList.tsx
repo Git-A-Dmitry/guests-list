@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IState as Props } from '../App';
-import { useLocalStorage } from './UseLocalStorage';
+// import { useLocalStorage } from './UseLocalStorage';
 
 interface IProps {
   people: Props['people'];
@@ -14,9 +14,6 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
     note: '',
     img: '',
   });
-
-  // const newPeople = [];
-  // const newPeople = JSON.parse(localStorage.getItem('people') || []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput({
@@ -34,7 +31,8 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
       ...people,
       {
         name: input.name,
-        age: parseInt(input.age),
+        age: input.age,
+        // age: parseInt(input.age),
         url: input.img,
         note: input.note,
       },
@@ -49,7 +47,7 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
   };
 
   return (
-    <div className='AddToList'>
+    <div className='input-box'>
       <input //
         className='AddToList-input'
         type='text'
