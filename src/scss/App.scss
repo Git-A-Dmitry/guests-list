@@ -1,0 +1,49 @@
+.App {
+  h5 {
+    padding-bottom: 20px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    @media (width >= 800px) {
+      flex-direction: row;
+    }
+  }
+}
+
+::placeholder {
+  color: #0007;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  width: 82%;
+  margin: 4rem auto;
+
+  @media (width >= 800px) {
+    width: 65%;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (width >= 800px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 10px 0;
+
+    @media (width >= 800px) {
+      width: 24rem;
+      // margin: 0;
+    }
+  }
+}

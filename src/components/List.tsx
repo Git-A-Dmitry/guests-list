@@ -1,6 +1,7 @@
 import React from 'react';
 import { IState as IProps } from '../App';
-import { deleteGuest } from '../App';
+import '../scss/List.scss';
+// import { deleteGuest } from '../App';
 
 // interface IProps {
 //   people: {
@@ -23,20 +24,20 @@ const List: React.FC<IProps> = ({ people }) => {
   // };
 
   const renderList = (): JSX.Element[] => {
-    return people.map((person) => {
+    return people.map((person, index) => {
       return (
-        <div>
-          <li key={person.id} className='List'>
-            <div className='List-header'>
-              <img className='List-img' src={person.url} alt='sport' />
-              <h5>{person.name}</h5>
+        <div key={index}>
+          <li className='card'>
+            <div className='card__header'>
+              <img className='card__img' src={person.url} alt='guest' />
+              <h6>{person.name}</h6>
             </div>
-            <p className='List-note'>{person.note}</p>
-            <p className='note'>{person.age}</p>
+            <p className='card__occupation'>{person.occupation}</p>
+            <p className='card__note'>{person.notes}</p>
             {/* <p className='List-note'>{person.note}</p> */}
-            <button className='btn btn-delete red lighten-2' onClick={() => deleteGuest()}>
+            {/* <button className='btn btn-delete red lighten-2' onClick={() => deleteGuest()}>
               d
-            </button>
+            </button> */}
           </li>
         </div>
       );
@@ -44,15 +45,6 @@ const List: React.FC<IProps> = ({ people }) => {
   };
 
   return <ul>{renderList()}</ul>;
-  // return (
-  //   <div>
-  //     <ul>
-  //       {people.map((person) => {
-  //         return <div>{person.name}</div>;
-  //       })}
-  //     </ul>
-  //   </div>
-  // );
 };
 
 export { List };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IState as Props } from '../App';
-// import { useLocalStorage } from './UseLocalStorage';
+import { deleteGuest } from '../App';
 
 interface IProps {
   people: Props['people'];
@@ -10,8 +10,8 @@ interface IProps {
 const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
   const [input, setInput] = useState({
     name: '',
-    age: '',
-    note: '',
+    notes: '',
+    occupation: '',
     img: '',
   });
 
@@ -24,24 +24,24 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
 
   const handleClick = () => {
     // !input - if input is empty, don't handle it
-    if (!input.name || !input.age || !input.img) {
+    if (!input.name || !input.notes || !input.img) {
       return;
     }
     setPeople([
       ...people,
       {
         name: input.name,
-        age: input.age,
+        notes: input.notes,
         // age: parseInt(input.age),
         url: input.img,
-        note: input.note,
+        occupation: input.occupation,
       },
     ]);
 
     setInput({
       name: '',
-      age: '',
-      note: '',
+      notes: '',
+      occupation: '',
       img: '',
     });
   };
@@ -51,7 +51,7 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
       <input //
         className='AddToList-input'
         type='text'
-        placeholder='name'
+        placeholder='name (required)'
         value={input.name}
         onChange={handleChange}
         name='name'
@@ -59,32 +59,36 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
       <input //
         className='AddToList-input'
         type='text'
-        placeholder='age'
-        value={input.age}
+        placeholder='occupation'
+        value={input.occupation}
         onChange={handleChange}
-        name='age'
+        name='occupation'
       />
       <input //
         className='AddToList-input'
         type='text'
-        placeholder='image URL'
+        placeholder='notes (required)'
+        value={input.notes}
+        onChange={handleChange}
+        name='notes'
+      />
+      <input //
+        className='AddToList-input'
+        type='text'
+        placeholder='image URL (required)'
         value={input.img}
         onChange={handleChange}
         name='img'
       />
-      <input //
-        className='AddToList-input'
-        type='text'
-        placeholder='note'
-        value={input.note}
-        onChange={handleChange}
-        name='note'
-      />
-      {/* <textarea className='AddToList-input' placeholder='note' /> */}
 
-      <button className='btn' onClick={handleClick}>
-        Add a new person to the List
-      </button>
+      <div className='buttons'>
+        <button className='btn red' onClick={() => deleteGuest()}>
+          Clear the List
+        </button>
+        <button className='btn green' onClick={handleClick}>
+          Add a New Guest
+        </button>
+      </div>
     </div>
   );
 };
