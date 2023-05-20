@@ -23,17 +23,17 @@ function App() {
   const [people, setPeople] = useLocalStorage<IState['people']>('guests', [
     {
       id: 1,
-      name: 'Steve Jobs',
-      occupation: 'Co-founder of Apple Inc',
-      notes: 'A Silicon Valley businessman. Most famous for his work with the company Apple Computer Inc.',
-      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/1280px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg',
+      name: 'Mickey',
+      occupation: 'American cartoon character',
+      notes: 'Mickey Mouse was created by Walt Disney in 1928. It serves as the mascot of the Walt Disney Company.',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7kyLFUfyyFodzK06XKecjC9KRy1g2C2kitA&usqp=CAU',
     },
     {
       id: 1,
-      name: 'Elon Musk',
-      occupation: 'CEO of SpaceX, Tesla and Twitter',
-      notes: 'Tesla - a company that makes electric vehicles. SpaceX - an aerospace company.',
-      url: 'https://pyxis.nymag.com/v1/imgs/34c/cae/ce8997338cbad42766ca705559b6e0ad6f-elon-musk-.rsquare.w700.jpg',
+      name: 'Donald',
+      occupation: "Scrooge McDuck's nephew",
+      notes: 'He is a Duck, and his girlfriend is Daisy Duck. He has a star on the Hollywood Walk of Fame.',
+      url: 'https://dreamlightvalleywiki.com/images/6/6f/Donald_Duck.png',
     },
   ]);
 
